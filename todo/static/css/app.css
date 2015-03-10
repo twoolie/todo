@@ -1,0 +1,103 @@
+/* line 3, ../sass/app.sass */
+html {
+  height: 100%;
+  background: url('/static/img/halftone.png?1425911570') center repeat;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 8, ../sass/app.sass */
+body {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+/* line 13, ../sass/app.sass */
+.todo-container {
+  background: white;
+  position: relative;
+  -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+/* line 18, ../sass/app.sass */
+.todo-container::before, .todo-container::after {
+  background: white;
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+/* line 28, ../sass/app.sass */
+.todo-container::before {
+  transform: rotateZ(2deg);
+}
+/* line 30, ../sass/app.sass */
+.todo-container::after {
+  transform: rotateZ(-2deg);
+}
+/* line 33, ../sass/app.sass */
+.todo-container table {
+  border-spacing: 0;
+}
+/* line 36, ../sass/app.sass */
+.todo-container tr th, .todo-container tr td {
+  padding: 5px;
+}
+/* line 39, ../sass/app.sass */
+.todo-container tr th.todo-col-done, .todo-container tr td.todo-col-done {
+  width: 15px;
+  text-align: center;
+}
+/* line 42, ../sass/app.sass */
+.todo-container tr th.todo-col-text, .todo-container tr td.todo-col-text {
+  border-left: 1px #f99 solid;
+}
+/* line 44, ../sass/app.sass */
+.todo-container tr th.todo-col-delete, .todo-container tr td.todo-col-delete {
+  width: 15px;
+  text-align: center;
+}
+/* line 48, ../sass/app.sass */
+.todo-container tr .todo-col-delete {
+  overflow: hidden;
+}
+/* line 50, ../sass/app.sass */
+.todo-container tr .todo-col-delete a {
+  position: relative;
+  left: 30px;
+  -moz-transition: left 0.2s ease-out;
+  -o-transition: left 0.2s ease-out;
+  -webkit-transition: left 0.2s ease-out;
+  transition: left 0.2s ease-out;
+}
+/* line 55, ../sass/app.sass */
+.todo-container tr:hover .todo-col-delete a {
+  left: 0px;
+}
+/* line 58, ../sass/app.sass */
+.todo-container thead th {
+  padding-top: 10px;
+  border-bottom: 2px lightblue solid;
+}
+/* line 61, ../sass/app.sass */
+.todo-container tbody td {
+  border-bottom: 1px lightblue solid;
+}
+/* line 64, ../sass/app.sass */
+.todo-container input[type=text] {
+  border: 0;
+  margin: -5px;
+  padding: 5px;
+  font-size: 1em;
+  width: 100%;
+}
+/* line 72, ../sass/app.sass */
+.todo-container .todo-item.complete {
+  color: grey;
+  text-decoration: line-through;
+}

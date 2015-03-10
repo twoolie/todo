@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html ng-app="todo" ng-controller="TodoPage">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Todo App [{[ todos.length ]}]</title>
+    <script src="{% static "js/angular.min.js" %}"></script>
+    <script src="{% static "js/app.js" %}"></script>
+    <link rel="stylesheet" href="{% static "css/app.css" %}" />
+    <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}" />
+</head>
+<body>
+<div class="todo-container">
+    <table style="width: 100%">
+    <thead>
+        <tr>
+            <th class="todo-col-done">
+                <a href ng-click="show_complete=!show_complete" title="Show Completed">
+                    <i class="fa fa-fw {[ show_complete ? 'fa-check-square-o' : 'fa-square-o' ]}"></i>
+                </a>
+            </th>
+            <th class="todo-col-text">Todo App</th>
+            <th class="todo-col-delete"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="todo in todos | filter:showComplete"
+            class="todo-item" ng-class="{complete: todo.done}">
+            <td class="todo-col-done">
+                <a href ng-click="mark(todo, !todo.done)">
+                    <i class="fa fa-fw {[ todo.done ? 'fa-check-square-o' : 'fa-square-o' ]}"></i></a></td>
+            <td class="todo-col-text">{[ todo.text ]}</td>
+            <td class="todo-col-delete">
+                <a href ng-click="remove(todo)">
+                    <i class="fa fa-trash-o" ng-tooltip="Delete Todo"></i></a></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td class="todo-col-done"></td>
+            <td class="todo-col-text">
+                <form ng-submit="create(create_text);create_text=''">
+                    <input type="text" ng-model="create_text" placeholder="Today, I should..." required>
+                </form>
+            </td>
+            <td class="todo-col-delete"></td>
+        </tr>
+    </tfoot>
+    </table>
+</div>
+</body>
+</html>
