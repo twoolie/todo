@@ -8,10 +8,12 @@ router = DefaultRouter()
 
 class ToDoSerializer(ModelSerializer):
     class Meta:
+        exclude = []
         model = ToDo
 
 class ToDoViewSet(ModelViewSet):
     queryset = ToDo.objects.all().order_by('created')
     serializer_class = ToDoSerializer
+    authentication_classes = []
 
 router.register('todo', ToDoViewSet)

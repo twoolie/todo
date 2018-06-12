@@ -31,22 +31,23 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     # 'django.contrib.admin',
-    # 'django.contrib.auth',
+    'django.contrib.auth',
     # 'django.contrib.contenttypes',
     # 'django.contrib.sessions',
     # 'django.contrib.messages',
+    'django.contrib.contenttypes',
     'django.contrib.staticfiles',
     'rest_framework',
     'todo',
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
+    # 'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.contrib.auth.middleware.AuthenticationMiddleware',
+    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    # 'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
@@ -64,6 +65,15 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+    },
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
